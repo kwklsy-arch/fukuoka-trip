@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🎄 福岡聖誕七日遊 | Fukuoka Winter Trip</title>
+    <title>🎄Fukuoka Winter Trip</title>
     
     <!-- PWA / Home Screen Icon Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,8 +57,8 @@
             <div class="flex flex-col gap-3">
                 <!-- Title Row (Centered) -->
                 <div @click="resetDataCounter" class="cursor-pointer select-none text-center">
-                    <h1 class="text-2xl font-bold text-slate-700 tracking-tight">福岡聖誕行 🎄</h1>
-                    <p class="text-xs text-slate-400 font-semibold">Winter Trip 2025 <span v-if="resetCount > 0 && resetCount < 5" class="text-red-300 text-[9px]">(再點{{5-resetCount}}次重置)</span></p>
+                    <h1 class="text-2xl font-bold text-slate-700 tracking-tight">🎄福岡聖誕七日遊🎄</h1>
+                    <p class="text-xs text-slate-400 font-semibold">Fukuoka Winter Trip 2025 <span v-if="resetCount > 0 && resetCount < 5" class="text-red-300 text-[9px]">(再點{{5-resetCount}}次重置)</span></p>
                 </div>
                 <!-- Navigation (Centered below title) -->
                 <div class="flex justify-center w-full">
@@ -84,8 +84,9 @@
                         <span class="text-sm font-bold text-slate-400">每日行程</span>
                     </div>
 
-                    <!-- Day Selector (Sticky & Compact) -->
-                    <div class="sticky top-0 z-40 bg-slate-100/95 backdrop-blur-md py-3 -mx-4 px-4 mb-4 border-b border-slate-200/50 flex gap-1 w-full shadow-sm">
+                    <!-- Day Selector (Sticky & Centered) -->
+                    <!-- Changed w-full to w-[calc(100%+2rem)] to fix left bias issue -->
+                    <div class="sticky top-0 z-40 bg-slate-100/95 backdrop-blur-md py-3 -mx-4 px-2 mb-4 border-b border-slate-200/50 flex justify-center gap-1 w-[calc(100%+2rem)] shadow-sm">
                         <!-- 'All' Button -->
                         <button @click="selectedDay = 'All'" 
                             class="flex-1 flex flex-col items-center justify-center py-2 rounded-lg transition-all border border-slate-200 h-14 min-w-0"
@@ -107,7 +108,7 @@
                     <div v-for="(day, index) in itinerary" :key="index">
                         <div v-if="selectedDay === 'All' || selectedDay === index" class="mb-8 relative transition-all duration-500">
                             <!-- Date Header -->
-                            <div class="flex items-start gap-4 mb-3 sticky top-[5rem] z-30 pt-2 pb-1 bg-slate-100/95 backdrop-blur">
+                            <div class="flex items-start gap-4 mb-3 sticky top-[5.5rem] z-30 pt-2 pb-1 bg-slate-100/95 backdrop-blur">
                                 <div class="clay-card w-14 h-16 flex flex-col items-center justify-center shrink-0 !bg-sky-100 !border-sky-200">
                                     <span class="text-xl font-bold text-sky-600 leading-none">{{ day.weekday }}</span>
                                     <span class="text-[10px] font-bold text-sky-400 mt-1">{{ day.date }}</span>
